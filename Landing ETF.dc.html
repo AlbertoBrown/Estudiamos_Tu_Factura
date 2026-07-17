@@ -20,32 +20,98 @@ input::placeholder{color:#94A3B8}
 @keyframes etfFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 @keyframes etfFadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 body{overflow-x:hidden}
-@media(max-width:768px){
-  #inicio{padding:90px 16px 32px!important;gap:24px!important}
-  #hero-img-wrap{height:260px!important}
-  #badge-ahorro,#badge-analizada{display:none!important}
-  #proceso{padding:24px 16px 64px!important}
-  #como-funcionamos>div{padding:56px 16px!important}
-  #asesora-img-wrap{height:240px!important}
-  #quienes-somos{padding:40px 16px 60px!important;gap:32px!important}
-  #equipo-img-wrap{height:260px!important}
-  #badge-asesor{display:none!important}
-  #estudio>div{padding:60px 16px!important;gap:40px!important}
-  footer>div{padding:40px 16px 32px!important}
-  footer>div+div{padding:0 16px 28px!important}
+img{max-width:100%}
+
+/* Las flechas que conectan los pasos solo caben cuando los 4 pasos van en una fila */
+@media(max-width:1120px){
+  .step-arrow{display:none!important}
 }
-@media(max-width:640px){
-  #hero-col-img{display:none!important}
-  #asesora-col{display:none!important}
-}
+
+/* ===== TABLET (641px – 1023px) ===== */
 @media(min-width:641px) and (max-width:1023px){
-  #inicio{flex-wrap:nowrap!important}
+  #inicio{padding:128px 24px 36px!important;gap:36px!important;flex-wrap:nowrap!important}
+  #inicio h1{font-size:clamp(36px,5vw,54px)!important}
   #hero-col-text{min-width:0!important;flex-shrink:1!important}
-  #hero-col-img{flex:0 0 300px!important;min-width:0!important}
-  #hero-img-wrap{height:400px!important}
+  #hero-col-img{flex:0 0 min(320px,38vw)!important;min-width:0!important}
+  #hero-img-wrap{height:420px!important}
+  #badge-ahorro{left:-12px!important;bottom:26px!important;padding:12px 16px!important}
+  #badge-analizada{right:-6px!important;top:24px!important}
+  #cifras{padding:44px 24px 72px!important}
+  #proceso{padding:32px 24px 80px!important}
+  #como-funcionamos>div{padding:72px 24px!important}
   #asesora-row{flex-wrap:nowrap!important}
   #asesora-cards{min-width:0!important;flex-shrink:1!important}
-  #asesora-col{flex:0 0 240px!important;min-width:0!important}
+  #asesora-col{flex:0 0 250px!important;min-width:0!important}
+  #dual{padding:70px 24px 30px!important}
+  #quienes-somos{padding:60px 24px 90px!important;gap:40px!important}
+  #equipo-img-wrap{height:400px!important}
+  #estudio>div{padding:84px 24px!important;gap:44px!important}
+  footer>div{padding:48px 24px 36px!important}
+  footer>div+div{padding:0 24px 32px!important}
+}
+
+/* ===== MÓVIL (≤640px) ===== */
+@media(max-width:640px){
+  /* Hero */
+  #inicio{padding:96px 20px 24px!important;gap:28px!important}
+  #inicio h1{font-size:clamp(31px,9vw,40px)!important;margin-bottom:20px!important}
+  #hero-col-text{min-width:0!important;flex:1 1 100%!important}
+  #hero-col-text>p{font-size:16px!important;margin-bottom:26px!important}
+  #hero-ctas{flex-direction:column!important;margin-bottom:32px!important}
+  #hero-ctas a{text-align:center!important;font-size:16px!important}
+  #hero-trust{gap:10px 18px!important;padding-top:20px!important}
+  #hero-col-img{flex:1 1 100%!important;min-width:0!important}
+  #hero-img-wrap{height:300px!important}
+  #badge-ahorro{left:10px!important;bottom:10px!important;padding:10px 14px!important;border-radius:14px!important}
+  #badge-ahorro>div:last-child{font-size:21px!important}
+  #badge-analizada{right:10px!important;top:10px!important;padding:9px 14px!important;border-radius:12px!important}
+  /* Cifras */
+  #cifras{padding:32px 20px 60px!important}
+  #cifras>div{padding:30px 22px!important;gap:28px!important;border-radius:24px!important}
+  #cifras>div>p{font-size:20px!important}
+  .stat-card{padding:16px!important}
+  .stat-card>div:first-child{font-size:26px!important}
+  /* Proceso */
+  #proceso{padding:24px 20px 70px!important}
+  #proceso>div:first-child{margin-bottom:44px!important}
+  #proceso h2{font-size:33px!important}
+  #proceso>div:first-child>p{font-size:16px!important}
+
+  /* Cómo funcionamos */
+  #como-funcionamos>div{padding:60px 20px!important}
+  #como-funcionamos h2{font-size:29px!important}
+  #asesora-col{flex:1 1 100%!important;min-width:0!important}
+  #asesora-img-wrap{height:300px!important}
+  /* Hogar / Empresa */
+  #dual{padding:56px 20px 16px!important}
+  .dual-card{min-height:380px!important}
+  .dual-content{padding:24px 22px 40px!important}
+  .dual-content h3{font-size:23px!important}
+  /* Quiénes somos */
+  #quienes-somos{padding:48px 20px 76px!important;gap:36px!important}
+  #quienes-somos h2{font-size:30px!important}
+  #quienes-somos p{font-size:15.5px!important}
+  #equipo-img-wrap{height:300px!important}
+  #badge-asesor{right:10px!important;bottom:10px!important;padding:12px 16px!important}
+  /* Formulario */
+  #estudio>div{padding:60px 20px!important;gap:40px!important}
+  #estudio h2{font-size:32px!important}
+  #estudio>div>div:first-child>p{font-size:16px!important}
+  #form-card{padding:28px 20px!important;border-radius:22px!important}
+  #ok-card{padding:36px 22px!important;border-radius:22px!important}
+  #estudio input{font-size:16px!important}
+  /* Footer */
+  footer>div{padding:40px 20px 28px!important;flex-direction:column!important;align-items:center!important;text-align:center!important}
+  footer nav{justify-content:center!important;gap:14px 22px!important}
+  footer>div+div{padding:0 20px 28px!important;flex-direction:column!important;gap:4px!important}
+}
+
+/* ===== MÓVIL PEQUEÑO (≤380px) ===== */
+@media(max-width:380px){
+  #inicio h1{font-size:29px!important}
+  #hero-img-wrap{height:250px!important}
+  #proceso h2,#estudio h2{font-size:29px!important}
+  #cifras>div>div{grid-template-columns:1fr!important}
 }
 </style>
 </helmet>
@@ -60,6 +126,7 @@ body{overflow-x:hidden}
         <a href="#proceso" onClick="{{ goProceso }}" style="font-size:15px;font-weight:600;color:#0F172A" style-hover="color:#1677FF">Proceso</a>
         <a href="#como-funcionamos" onClick="{{ goComo }}" style="font-size:15px;font-weight:600;color:#0F172A" style-hover="color:#1677FF">Cómo funcionamos</a>
         <a href="#quienes-somos" onClick="{{ goQuienes }}" style="font-size:15px;font-weight:600;color:#0F172A" style-hover="color:#1677FF">Quiénes somos</a>
+        <a href="./crm.html" style="display:flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#64748B" style-hover="color:#1677FF">🔒 Empleados</a>
         <a href="#estudio" onClick="{{ goEstudio }}" style="background:#1677FF;color:#fff;font-size:15px;font-weight:700;padding:12px 24px;border-radius:999px;transition:background .2s" style-hover="background:#0F172A;color:#fff">Estudiar mi factura</a>
       </nav>
     </sc-if>
@@ -73,10 +140,11 @@ body{overflow-x:hidden}
   </div>
   <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
     <nav style="background:#fff;border-top:1px solid #E2E8F0;padding:18px 28px 24px;display:flex;flex-direction:column;gap:16px">
-      <a href="#proceso" onClick="{{ goProceso }}" style="font-size:17px;font-weight:600;color:#0F172A">Proceso</a>
-      <a href="#como-funcionamos" onClick="{{ goComo }}" style="font-size:17px;font-weight:600;color:#0F172A">Cómo funcionamos</a>
-      <a href="#quienes-somos" onClick="{{ goQuienes }}" style="font-size:17px;font-weight:600;color:#0F172A">Quiénes somos</a>
+      <a href="#proceso" onClick="{{ goProceso }}" style="font-size:17px;font-weight:600;color:#0F172A;text-align:center">Proceso</a>
+      <a href="#como-funcionamos" onClick="{{ goComo }}" style="font-size:17px;font-weight:600;color:#0F172A;text-align:center">Cómo funcionamos</a>
+      <a href="#quienes-somos" onClick="{{ goQuienes }}" style="font-size:17px;font-weight:600;color:#0F172A;text-align:center">Quiénes somos</a>
       <a href="#estudio" onClick="{{ goEstudio }}" style="background:#1677FF;color:#fff;font-size:16px;font-weight:700;padding:14px 24px;border-radius:999px;text-align:center">Estudiar mi factura</a>
+      <a href="./crm.html" style="display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:600;color:#64748B;border-top:1px solid #E2E8F0;padding-top:16px;margin-top:2px">🔒 Acceso empleados</a>
     </nav>
   </sc-if>
 </header>
@@ -89,11 +157,11 @@ body{overflow-x:hidden}
     </div>
     <h1 style="font-size:clamp(44px,5.6vw,76px);line-height:1.04;font-weight:800;letter-spacing:-0.03em;margin:0 0 26px;text-wrap:balance">Pagar menos empieza por <span style="position:relative;display:inline-block"><em style="font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;color:#1677FF;letter-spacing:0">entender</em><svg viewBox="0 0 100 12" preserveAspectRatio="none" style="position:absolute;left:0;right:0;bottom:-10px;width:100%;height:12px"><path d="M3 8 Q 26 3 50 7 Q 74 11 97 5" stroke="#1677FF" stroke-width="3" fill="none" stroke-linecap="round" data-draw="1"></path></svg></span>.</h1>
     <p style="font-size:19px;line-height:1.6;color:#64748B;max-width:520px;margin:0 0 36px;text-wrap:pretty">Estudiamos gratis tu factura de luz y gas, comparamos el mercado y te mostramos cuánto puedes ahorrar.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:44px">
+    <div id="hero-ctas" style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:44px">
       <a href="#estudio" onClick="{{ goEstudio }}" style="background:#1677FF;color:#fff;font-size:17px;font-weight:700;padding:17px 34px;border-radius:999px;transition:background .2s,transform .2s" style-hover="background:#0F172A;color:#fff;transform:translateY(-2px)">Quiero ahorrar</a>
       <a href="#como-funcionamos" onClick="{{ goComo }}" style="background:#fff;border:1px solid #E2E8F0;color:#0F172A;font-size:17px;font-weight:700;padding:16px 34px;border-radius:999px;transition:border-color .2s" style-hover="border-color:#1677FF;color:#1677FF">Ver cómo funciona</a>
     </div>
-    <div style="display:flex;flex-wrap:wrap;gap:10px 28px;border-top:1px solid #E2E8F0;padding-top:24px">
+    <div id="hero-trust" style="display:flex;flex-wrap:wrap;gap:10px 28px;border-top:1px solid #E2E8F0;padding-top:24px">
       <div style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#0F172A"><span style="color:#22C55E;font-weight:800">✓</span> Más de 10 años de experiencia</div>
       <div style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#0F172A"><span style="color:#22C55E;font-weight:800">✓</span> Estudio gratuito</div>
       <div style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#0F172A"><span style="color:#22C55E;font-weight:800">✓</span> Sin compromiso</div>
@@ -115,14 +183,14 @@ body{overflow-x:hidden}
   </div>
 </section>
 
-<section style="max-width:1240px;margin:0 auto;padding:56px 28px 90px">
+<section id="cifras" style="max-width:1240px;margin:0 auto;padding:56px 28px 90px">
   <div style="background:#0F172A;border-radius:32px;padding:clamp(44px,6vw,72px);display:flex;flex-wrap:wrap;align-items:center;gap:48px">
     <p style="flex:1 1 460px;min-width:300px;margin:0;font-size:clamp(24px,2.6vw,34px);line-height:1.35;font-weight:600;color:#F8FAFC;letter-spacing:-0.01em;text-wrap:pretty">Más de 10 años defendiendo los intereses de familias y pymes españolas. <em style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#1677FF">Analizamos. Comparamos.</em> <span style="position:relative;display:inline-block;padding:2px 10px"><em style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#22C55E">Ahorras.</em><svg viewBox="0 0 120 46" preserveAspectRatio="none" style="position:absolute;inset:-4px;width:calc(100% + 8px);height:calc(100% + 8px)"><path d="M60 3 C 102 3 117 12 117 23 C 117 36 94 43 58 43 C 22 43 3 35 3 23 C 3 12 24 4 68 3" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" data-draw="1"></path></svg></span></p>
     <div style="flex:1 1 300px;min-width:260px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
-      <div data-reveal="" style="border:1px solid rgba(248,250,252,.14);border-radius:18px;padding:22px"><div style="font-size:34px;font-weight:800;color:#fff;letter-spacing:-0.02em">+<span data-count="10">10</span></div><div style="font-size:13px;color:#94A3B8;margin-top:4px">años de experiencia</div></div>
-      <div data-reveal="" style="border:1px solid rgba(248,250,252,.14);border-radius:18px;padding:22px"><div style="font-size:34px;font-weight:800;color:#fff;letter-spacing:-0.02em">0 €</div><div style="font-size:13px;color:#94A3B8;margin-top:4px">coste del estudio</div></div>
-      <div data-reveal="" style="border:1px solid rgba(248,250,252,.14);border-radius:18px;padding:22px"><div style="font-size:34px;font-weight:800;color:#22C55E;letter-spacing:-0.02em"><span data-count="286">286</span> €</div><div style="font-size:13px;color:#94A3B8;margin-top:4px">ahorro medio al año</div></div>
-      <div data-reveal="" style="border:1px solid rgba(248,250,252,.14);border-radius:18px;padding:22px"><div style="font-size:34px;font-weight:800;color:#fff;letter-spacing:-0.02em"><span data-count="100">100</span>%</div><div style="font-size:13px;color:#94A3B8;margin-top:4px">atención personalizada</div></div>
+      <div data-reveal="" class="stat-card" style="border:1px solid rgba(248,250,252,.14);border-radius:18px;padding:22px"><div style="font-size:34px;font-weight:800;color:#fff;letter-spacing:-0.02em">+<span data-count="10">10</span></div><div style="font-size:13px;color:#94A3B8;margin-top:4px">años de experiencia</div></div>
+      <div data-reveal="" class="stat-card" style="border:1px solid rgba(248,250,252,.14);border-radius:18px;padding:22px"><div style="font-size:34px;font-weight:800;color:#fff;letter-spacing:-0.02em">0 €</div><div style="font-size:13px;color:#94A3B8;margin-top:4px">coste del estudio</div></div>
+      <div data-reveal="" class="stat-card" style="border:1px solid rgba(248,250,252,.14);border-radius:18px;padding:22px"><div style="font-size:34px;font-weight:800;color:#22C55E;letter-spacing:-0.02em"><span data-count="286">286</span> €</div><div style="font-size:13px;color:#94A3B8;margin-top:4px">ahorro medio al año</div></div>
+      <div data-reveal="" class="stat-card" style="border:1px solid rgba(248,250,252,.14);border-radius:18px;padding:22px"><div style="font-size:34px;font-weight:800;color:#fff;letter-spacing:-0.02em"><span data-count="100">100</span>%</div><div style="font-size:13px;color:#94A3B8;margin-top:4px">atención personalizada</div></div>
     </div>
   </div>
 </section>
@@ -141,7 +209,7 @@ body{overflow-x:hidden}
         <div style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:34px;height:34px;border-radius:50%;background:#1677FF;color:#fff;font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(22,119,255,.35)">1</div>
         <div style="position:absolute;right:2px;bottom:8px;width:34px;height:34px;border-radius:50%;background:#1677FF;color:#fff;font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center;border:3px solid #F8FAFC">↑</div>
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" style="position:absolute;top:2px;right:-16px"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#1677FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>
-        <svg width="40" height="20" viewBox="0 0 40 20" fill="none" style="position:absolute;top:64px;right:-40px"><path d="M3 12 Q 18 5 32 9" stroke="#1677FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="4 4" data-draw="1"></path><path d="M27 4 L34 9 L26 13" stroke="#1677FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" data-draw="1"></path></svg>
+        <svg width="40" height="20" viewBox="0 0 40 20" fill="none" class="step-arrow" style="position:absolute;top:64px;right:-40px"><path d="M3 12 Q 18 5 32 9" stroke="#1677FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="4 4" data-draw="1"></path><path d="M27 4 L34 9 L26 13" stroke="#1677FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" data-draw="1"></path></svg>
       </div>
       <h3 style="font-size:19px;font-weight:800;margin:0 0 10px">Sube tu factura</h3>
       <p style="font-size:15px;line-height:1.6;color:#64748B;margin:0 0 16px;text-wrap:pretty">Haz una foto o sube tu factura de luz o gas. Solo te llevará unos segundos.</p>
@@ -154,7 +222,7 @@ body{overflow-x:hidden}
         <div style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:34px;height:34px;border-radius:50%;background:#1677FF;color:#fff;font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(22,119,255,.35)">2</div>
         <div style="position:absolute;right:2px;bottom:8px;width:34px;height:34px;border-radius:50%;background:#22C55E;color:#fff;font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center;border:3px solid #F8FAFC">✓</div>
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" style="position:absolute;top:2px;right:-16px"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>
-        <svg width="40" height="20" viewBox="0 0 40 20" fill="none" style="position:absolute;top:64px;right:-40px"><path d="M3 12 Q 18 5 32 9" stroke="#1677FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="4 4" data-draw="1"></path><path d="M27 4 L34 9 L26 13" stroke="#1677FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" data-draw="1"></path></svg>
+        <svg width="40" height="20" viewBox="0 0 40 20" fill="none" class="step-arrow" style="position:absolute;top:64px;right:-40px"><path d="M3 12 Q 18 5 32 9" stroke="#1677FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="4 4" data-draw="1"></path><path d="M27 4 L34 9 L26 13" stroke="#1677FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" data-draw="1"></path></svg>
       </div>
       <h3 style="font-size:19px;font-weight:800;margin:0 0 10px">La analizamos por ti</h3>
       <p style="font-size:15px;line-height:1.6;color:#64748B;margin:0 0 16px;text-wrap:pretty">Nuestros expertos estudian tu consumo y comparan entre las mejores tarifas del mercado.</p>
@@ -172,7 +240,7 @@ body{overflow-x:hidden}
         </div>
         <div style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:34px;height:34px;border-radius:50%;background:#1677FF;color:#fff;font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(22,119,255,.35)">3</div>
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" style="position:absolute;top:2px;right:-16px"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#1677FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>
-        <svg width="40" height="20" viewBox="0 0 40 20" fill="none" style="position:absolute;top:64px;right:-40px"><path d="M3 12 Q 18 5 32 9" stroke="#1677FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="4 4" data-draw="1"></path><path d="M27 4 L34 9 L26 13" stroke="#1677FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" data-draw="1"></path></svg>
+        <svg width="40" height="20" viewBox="0 0 40 20" fill="none" class="step-arrow" style="position:absolute;top:64px;right:-40px"><path d="M3 12 Q 18 5 32 9" stroke="#1677FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="4 4" data-draw="1"></path><path d="M27 4 L34 9 L26 13" stroke="#1677FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" data-draw="1"></path></svg>
       </div>
       <h3 style="font-size:19px;font-weight:800;margin:0 0 10px">Te mostramos tu ahorro</h3>
       <p style="font-size:15px;line-height:1.6;color:#64748B;margin:0 0 16px;text-wrap:pretty">Te enviamos las mejores opciones para que elijas la que más te conviene, sin compromiso.</p>
@@ -190,10 +258,6 @@ body{overflow-x:hidden}
       <p style="font-size:15px;line-height:1.6;color:#64748B;margin:0 0 16px;text-wrap:pretty">Nos encargamos de todo el proceso por ti. Tú no tienes que hacer nada. Te acompañamos siempre.</p>
       <span style="display:inline-flex;align-items:center;gap:7px;white-space:nowrap;background:#E9F9EF;color:#16A34A;font-size:13.5px;font-weight:700;padding:8px 16px;border-radius:999px">✓ Coste 0 €</span>
     </div>
-  </div>
-  <div style="background:#E8F0FE;border-radius:18px;padding:18px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px">
-    <div style="display:flex;align-items:center;gap:12px;font-size:15px;font-weight:700;color:#1677FF">💙 Miles de hogares y empresas ya confían en nosotros para pagar solo lo justo por su energía.</div>
-    <div style="display:flex;align-items:center;gap:10px"><span style="color:#22C55E;font-size:16px;letter-spacing:2px">★★★★★</span><span style="font-size:14px;font-weight:700;color:#1677FF">4,9/5 en más de 2.500 opiniones</span></div>
   </div>
 </section>
 
@@ -240,22 +304,22 @@ body{overflow-x:hidden}
   </div>
 </section>
 
-<section style="max-width:1240px;margin:0 auto;padding:100px 28px 50px">
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px">
-    <div data-reveal="" style="position:relative;border-radius:28px;overflow:hidden;min-height:440px;background:#0F172A">
+<section id="dual" style="max-width:1240px;margin:0 auto;padding:100px 28px 50px">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+    <div data-reveal="" class="dual-card" style="position:relative;border-radius:28px;overflow:hidden;min-height:440px;background:#0F172A">
       <div style="position:absolute;inset:0"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="foto-hogar" shape="rect" placeholder="Foto: familia en casa, luz natural" hint-size="100%,440px"></x-import></div>
       <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,42,.86) 0%,rgba(15,23,42,.25) 55%,rgba(15,23,42,0) 100%);pointer-events:none"></div>
-      <div style="position:absolute;left:0;right:0;bottom:0;padding:34px 34px 60px;pointer-events:none">
+      <div class="dual-content" style="position:absolute;left:0;right:0;bottom:0;padding:34px 34px 60px;pointer-events:none">
         <div style="display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.16em;color:#7EB4FF;margin-bottom:10px"><svg width="15" height="15" viewBox="0 0 22 22" fill="none" style="transform:scaleX(-1)"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#7EB4FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>PARA TU HOGAR</div>
         <h3 style="font-size:28px;font-weight:800;color:#fff;margin:0 0 10px;letter-spacing:-0.02em">Ahorra en la luz y el gas de tu casa</h3>
         <p style="font-size:15px;line-height:1.6;color:rgba(255,255,255,.85);margin:0 0 20px;max-width:420px;text-wrap:pretty">Buscamos la mejor tarifa para tu vivienda trabajando con las diferentes compañías del sector.</p>
         <a href="#estudio" onClick="{{ goEstudio }}" style="pointer-events:auto;display:inline-block;background:#fff;color:#0F172A;font-size:15px;font-weight:700;padding:13px 26px;border-radius:999px;transition:background .2s" style-hover="background:#1677FF;color:#fff">Quiero empezar a ahorrar</a>
       </div>
     </div>
-    <div data-reveal="" style="position:relative;border-radius:28px;overflow:hidden;min-height:440px;background:#0F172A">
+    <div data-reveal="" class="dual-card" style="position:relative;border-radius:28px;overflow:hidden;min-height:440px;background:#0F172A">
       <div style="position:absolute;inset:0"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="foto-empresa" shape="rect" placeholder="Foto: pequeño negocio local" hint-size="100%,440px"></x-import></div>
       <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,42,.86) 0%,rgba(15,23,42,.25) 55%,rgba(15,23,42,0) 100%);pointer-events:none"></div>
-      <div style="position:absolute;left:0;right:0;bottom:0;padding:34px 34px 60px;pointer-events:none">
+      <div class="dual-content" style="position:absolute;left:0;right:0;bottom:0;padding:34px 34px 60px;pointer-events:none">
         <div style="display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.16em;color:#7EB4FF;margin-bottom:10px"><svg width="15" height="15" viewBox="0 0 22 22" fill="none" style="transform:scaleX(-1)"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#7EB4FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>PARA TU EMPRESA</div>
         <h3 style="font-size:28px;font-weight:800;color:#fff;margin:0 0 10px;letter-spacing:-0.02em">Bastante tienes con tu negocio</h3>
         <p style="font-size:15px;line-height:1.6;color:rgba(255,255,255,.85);margin:0 0 20px;max-width:420px;text-wrap:pretty">Deja que nosotros te ayudemos a ahorrar en las facturas energéticas de tu empresa.</p>
@@ -296,7 +360,7 @@ body{overflow-x:hidden}
     </div>
     <div style="flex:1 1 420px;min-width:320px">
       <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
-        <div style="background:#fff;border-radius:26px;padding:38px;box-shadow:0 24px 64px rgba(0,0,0,.25)">
+        <div id="form-card" style="background:#fff;border-radius:26px;padding:38px;box-shadow:0 24px 64px rgba(0,0,0,.25)">
           <h3 style="font-size:22px;font-weight:800;margin:0 0 24px;letter-spacing:-0.01em">Estudiar mi factura</h3>
           <div style="display:flex;flex-direction:column;gap:18px">
             <label style="display:flex;flex-direction:column;gap:7px;font-size:14px;font-weight:700;color:#0F172A">Nombre y apellidos
@@ -330,7 +394,7 @@ body{overflow-x:hidden}
         </div>
       </sc-if>
       <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
-        <div style="background:#fff;border-radius:26px;padding:48px 38px;box-shadow:0 24px 64px rgba(0,0,0,.25);text-align:center;animation:etfFadeUp .5s ease both">
+        <div id="ok-card" style="background:#fff;border-radius:26px;padding:48px 38px;box-shadow:0 24px 64px rgba(0,0,0,.25);text-align:center;animation:etfFadeUp .5s ease both">
           <div style="width:64px;height:64px;border-radius:50%;background:#22C55E;color:#fff;font-size:28px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 22px">✓</div>
           <h3 style="font-size:24px;font-weight:800;margin:0 0 12px;letter-spacing:-0.01em">¡Solicitud recibida, {{ nombreCorto }}!</h3>
           <p style="font-size:16px;line-height:1.65;color:#64748B;margin:0 0 26px;text-wrap:pretty">Nuestro equipo se pondrá en contacto contigo en menos de 12 horas para comenzar tu estudio gratuito.</p>
@@ -351,17 +415,14 @@ body{overflow-x:hidden}
       <a href="#" onClick="{{ noop }}" style="font-size:14px;font-weight:600;color:#94A3B8" style-hover="color:#fff">Aviso Legal</a>
       <a href="#" onClick="{{ noop }}" style="font-size:14px;font-weight:600;color:#94A3B8" style-hover="color:#fff">Política de Privacidad</a>
       <a href="#" onClick="{{ noop }}" style="font-size:14px;font-weight:600;color:#94A3B8" style-hover="color:#fff">Política de Cookies</a>
+      <a href="./crm.html" style="display:flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#94A3B8" style-hover="color:#fff">🔒 Acceso empleados</a>
     </nav>
   </div>
   <div style="max-width:1240px;margin:0 auto;padding:0 28px 36px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;border-top:1px solid rgba(248,250,252,.08)">
     <p style="font-size:13px;color:#64748B;margin:18px 0 0">© 2026 Estudiamos tu factura · Tu energía, sin letra pequeña.</p>
-    <div style="display:flex;align-items:center;gap:20px;margin-top:18px">
-      <div style="background:#fff;border-radius:12px;padding:10px 18px;display:flex;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.18)">
-        <img src="./assets/kit_digital.png" alt="Kit Digital" style="height:52px;display:block">
-      </div>
-      <div style="background:#fff;border-radius:12px;padding:10px 18px;display:flex;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.18)">
-        <img src="./assets/union_europea.png" alt="Unión Europea" style="height:52px;display:block">
-      </div>
+    <div style="display:flex;align-items:center;gap:16px;margin-top:18px">
+      <img src="./assets/kit_digital.png" alt="Kit Digital" style="height:40px;display:block">
+      <img src="./assets/union_europea.png" alt="Unión Europea" style="height:40px;display:block">
     </div>
     <p style="font-size:13px;color:#64748B;margin:18px 0 0">hola@estudiamostufactura.es</p>
   </div>
