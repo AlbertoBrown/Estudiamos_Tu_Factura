@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css">
+</helmet>
+
+<header class="site-header" style="background:{{ headerBg }};box-shadow:{{ headerShadow }};border-bottom:1px solid {{ headerBorder }}">
+  <div class="header-inner">
+    <a href="#inicio" onClick="{{ goInicio }}" class="logo-link">
+      <img src="./assets/logo.png" alt="Estudiamos tu factura" class="logo-img">
+    </a>
+    <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+      <nav class="nav-desktop">
+        <a href="#proceso" onClick="{{ goProceso }}" class="nav-link">Proceso</a>
+        <a href="#como-funcionamos" onClick="{{ goComo }}" class="nav-link">Cómo funcionamos</a>
+        <a href="#quienes-somos" onClick="{{ goQuienes }}" class="nav-link">Quiénes somos</a>
+        <a href="./crm.html" class="nav-staff">🔒 Empleados</a>
+        <a href="#estudio" onClick="{{ goEstudio }}" class="btn-nav-cta">Estudiar mi factura</a>
+      </nav>
+    </sc-if>
+    <sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ toggleMenu }}" aria-label="Menú" class="menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <nav class="nav-mobile">
+      <a href="#proceso" onClick="{{ goProceso }}" class="nav-mobile-link">Proceso</a>
+      <a href="#como-funcionamos" onClick="{{ goComo }}" class="nav-mobile-link">Cómo funcionamos</a>
+      <a href="#quienes-somos" onClick="{{ goQuienes }}" class="nav-mobile-link">Quiénes somos</a>
+      <a href="#estudio" onClick="{{ goEstudio }}" class="btn-nav-cta">Estudiar mi factura</a>
+      <a href="./crm.html" class="nav-staff-mobile">🔒 Acceso empleados</a>
+    </nav>
+  </sc-if>
+</header>
+
+<section id="inicio" class="hero">
+  <div class="hero-text">
+    <div class="pill-badge">
+      <span class="dot-green"></span>
+      Estudio gratuito y sin compromiso
+    </div>
+    <h1 class="hero-title">Pagar menos empieza por <span class="hl"><em>entender</em><svg viewBox="0 0 100 12" preserveAspectRatio="none" class="hl-svg"><path d="M3 8 Q 26 3 50 7 Q 74 11 97 5" stroke="#1677FF" stroke-width="3" fill="none" stroke-linecap="round" data-draw="1"></path></svg></span>.</h1>
+    <p class="hero-sub">Estudiamos gratis tu factura de luz y gas, comparamos el mercado y te mostramos cuánto puedes ahorrar.</p>
+    <div class="hero-ctas">
+      <a href="#estudio" onClick="{{ goEstudio }}" class="btn-primary">Quiero ahorrar</a>
+      <a href="#como-funcionamos" onClick="{{ goComo }}" class="btn-ghost">Ver cómo funciona</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item"><span class="check">✓</span> Más de 10 años de experiencia</div>
+      <div class="trust-item"><span class="check">✓</span> Estudio gratuito</div>
+      <div class="trust-item"><span class="check">✓</span> Sin compromiso</div>
+      <div class="trust-item"><span class="check">✓</span> Atención personalizada</div>
+    </div>
+  </div>
+  <div class="hero-media">
+    <div class="hero-img-wrap">
+      <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hero-photo" shape="rounded" radius="28" placeholder="Foto hero: persona en su hogar revisando su factura con luz natural" hint-size="100%,540px" src="./assets/header.png"></x-import>
+      <div class="badge-ahorro">
+        <div class="badge-ahorro-label">AHORRO ESTIMADO</div>
+        <div class="badge-ahorro-num">286 €<span> /año</span></div>
+      </div>
+      <div class="badge-analizada">
+        <div><div class="t">Factura analizada</div><div class="s">en menos de 12 h</div></div>
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" class="spark"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#1677FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cifras">
+  <div class="cifras-box">
+    <p class="cifras-quote">Más de 10 años defendiendo los intereses de familias y pymes españolas. <em class="em-serif em-blue">Analizamos. Comparamos.</em> <span class="circle-hl"><em class="em-serif em-green">Ahorras.</em><svg viewBox="0 0 120 46" preserveAspectRatio="none"><path d="M60 3 C 102 3 117 12 117 23 C 117 36 94 43 58 43 C 22 43 3 35 3 23 C 3 12 24 4 68 3" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" data-draw="1"></path></svg></span></p>
+    <div class="stats-grid">
+      <div data-reveal="" class="stat-card"><div class="stat-num">+<span data-count="10">10</span></div><div class="stat-label">años de experiencia</div></div>
+      <div data-reveal="" class="stat-card"><div class="stat-num">0 €</div><div class="stat-label">coste del estudio</div></div>
+      <div data-reveal="" class="stat-card"><div class="stat-num green"><span data-count="286">286</span> €</div><div class="stat-label">ahorro medio al año</div></div>
+      <div data-reveal="" class="stat-card"><div class="stat-num"><span data-count="100">100</span>%</div><div class="stat-label">atención personalizada</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="proceso">
+  <div class="section-head">
+    <div class="kicker kicker-center kicker-lg"><svg width="16" height="16" viewBox="0 0 22 22" fill="none" class="flip"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#1677FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>ASÍ DE FÁCIL<svg width="16" height="16" viewBox="0 0 22 22" fill="none"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#1677FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg></div>
+    <h2>Tu cambio, <span class="text-blue">en 4 pasos</span></h2>
+    <p>Sin letra pequeña. Sin complicaciones. <span class="text-blue" style="font-weight:600">Siempre a tu lado.</span></p>
+  </div>
+  <div class="steps-grid">
+    <div data-reveal="" class="step">
+      <div class="step-visual">
+        <div class="step-bg bg-blue"></div>
+        <div class="step-emoji">📄</div>
+        <div class="step-num">1</div>
+        <div class="step-mini blue">↑</div>
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" class="step-spark"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#1677FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>
+        <svg width="40" height="20" viewBox="0 0 40 20" fill="none" class="step-arrow"><path d="M3 12 Q 18 5 32 9" stroke="#1677FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="4 4" data-draw="1"></path><path d="M27 4 L34 9 L26 13" stroke="#1677FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" data-draw="1"></path></svg>
+      </div>
+      <h3>Sube tu factura</h3>
+      <p>Haz una foto o sube tu factura de luz o gas. Solo te llevará unos segundos.</p>
+      <span class="step-tag tag-blue">🕐 30 segundos</span>
+    </div>
+    <div data-reveal="" class="step">
+      <div class="step-visual">
+        <div class="step-bg bg-green"></div>
+        <div class="step-emoji">🔍</div>
+        <div class="step-num">2</div>
+        <div class="step-mini green">✓</div>
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" class="step-spark"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>
+        <svg width="40" height="20" viewBox="0 0 40 20" fill="none" class="step-arrow"><path d="M3 12 Q 18 5 32 9" stroke="#1677FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="4 4" data-draw="1"></path><path d="M27 4 L34 9 L26 13" stroke="#1677FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" data-draw="1"></path></svg>
+      </div>
+      <h3>La analizamos por ti</h3>
+      <p>Nuestros expertos estudian tu consumo y comparan entre las mejores tarifas del mercado.</p>
+      <span class="step-tag tag-green">🕐 12 h máximo</span>
+    </div>
+    <div data-reveal="" class="step">
+      <div class="step-visual">
+        <div class="step-bg bg-blue"></div>
+        <div class="step-center">
+          <div class="mini-card">
+            <div class="l1">Tu ahorro estimado</div>
+            <div class="l2">312 €</div>
+            <div class="l3">al año</div>
+          </div>
+        </div>
+        <div class="step-num">3</div>
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" class="step-spark"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#1677FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>
+        <svg width="40" height="20" viewBox="0 0 40 20" fill="none" class="step-arrow"><path d="M3 12 Q 18 5 32 9" stroke="#1677FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="4 4" data-draw="1"></path><path d="M27 4 L34 9 L26 13" stroke="#1677FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" data-draw="1"></path></svg>
+      </div>
+      <h3>Te mostramos tu ahorro</h3>
+      <p>Te enviamos las mejores opciones para que elijas la que más te conviene, sin compromiso.</p>
+      <span class="step-tag tag-blue">🕐 2 minutos</span>
+    </div>
+    <div data-reveal="" class="step">
+      <div class="step-visual">
+        <div class="step-bg bg-green"></div>
+        <div class="step-emoji">🧑‍💼</div>
+        <div class="step-num">4</div>
+        <div class="step-mini green">✓</div>
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" class="step-spark"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>
+      </div>
+      <h3>Gestionamos el cambio</h3>
+      <p>Nos encargamos de todo el proceso por ti. Tú no tienes que hacer nada. Te acompañamos siempre.</p>
+      <span class="step-tag tag-green">✓ Coste 0 €</span>
+    </div>
+  </div>
+  <div class="rating-bar">
+    <div class="rating-msg">💙 Miles de hogares y empresas ya confían en nosotros para pagar solo lo justo por su energía.</div>
+    <div class="rating-score"><span class="stars">★★★★★</span><span class="rating-txt">4,9/5 en más de 2.500 opiniones</span></div>
+  </div>
+</section>
+
+<section id="como-funcionamos">
+  <div class="cf-inner">
+    <div class="cf-head">
+      <div class="cf-head-inner">
+        <div class="kicker kicker-center"><svg width="16" height="16" viewBox="0 0 22 22" fill="none" class="flip"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#1677FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>CÓMO FUNCIONAMOS<svg width="16" height="16" viewBox="0 0 22 22" fill="none"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#1677FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg></div>
+        <h2>Tu energía, <span class="hl"><em>sin letra pequeña</em><svg viewBox="0 0 100 12" preserveAspectRatio="none" class="hl-svg"><path d="M3 8 Q 26 3 50 7 Q 74 11 97 5" stroke="#1677FF" stroke-width="3" fill="none" stroke-linecap="round" data-draw="1"></path></svg></span>.</h2>
+      </div>
+      <p class="cf-sub">Asesoría independiente: no somos una comercializadora, defendemos tus intereses.</p>
+    </div>
+    <div class="divider-row">
+      <div class="divider-line"></div>
+      <svg width="16" height="16" viewBox="0 0 22 22" fill="none" class="flip"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#1677FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>
+      <h3>¿Por qué confiar en nosotros?</h3>
+      <svg width="16" height="16" viewBox="0 0 22 22" fill="none"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#1677FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>
+      <div class="divider-line"></div>
+    </div>
+    <div class="asesora-row">
+      <div class="asesora-cards">
+        <div data-reveal="" class="feature-lead">
+          <div class="lead-check">✓</div>
+          <div class="lead-title">No estás solo.<br><span class="text-blue">Te acompañamos de principio a fin.</span></div>
+        </div>
+        <div data-reveal="" class="feature-card">
+          <div class="feature-icon">🎧</div>
+          <div><div class="feature-title">Asesor personal</div><div class="feature-desc">Siempre tendrás a una persona real contigo.</div></div>
+        </div>
+        <div data-reveal="" class="feature-card">
+          <div class="feature-icon">💬</div>
+          <div><div class="feature-title">Dudas y gestiones</div><div class="feature-desc">Nos encargamos de todo, tú no tienes que hacer nada.</div></div>
+        </div>
+        <div data-reveal="" class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <div><div class="feature-title">Acompañamiento total</div><div class="feature-desc">Te acompañamos antes, durante y después del cambio.</div></div>
+        </div>
+      </div>
+      <div data-reveal="" class="asesora-media">
+        <div class="asesora-img-wrap"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="foto-asesora" shape="rounded" radius="20" placeholder="Foto de tu asesora (con auriculares, sonriendo)" hint-size="100%,340px" src="./assets/asesora.png"></x-import></div>
+        <div class="asesora-tag">Tu asesora personal <span class="text-blue">· real, no un bot</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dual">
+  <div class="dual-grid">
+    <div data-reveal="" class="dual-card">
+      <div class="dual-img"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="foto-hogar" shape="rect" placeholder="Foto: familia en casa, luz natural" hint-size="100%,440px"></x-import></div>
+      <div class="dual-overlay"></div>
+      <div class="dual-content">
+        <div class="dual-kicker"><svg width="15" height="15" viewBox="0 0 22 22" fill="none" class="flip"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#7EB4FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>PARA TU HOGAR</div>
+        <h3>Ahorra en la luz y el gas de tu casa</h3>
+        <p>Buscamos la mejor tarifa para tu vivienda trabajando con las diferentes compañías del sector.</p>
+        <a href="#estudio" onClick="{{ goEstudio }}" class="btn-white">Quiero empezar a ahorrar</a>
+      </div>
+    </div>
+    <div data-reveal="" class="dual-card">
+      <div class="dual-img"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="foto-empresa" shape="rect" placeholder="Foto: pequeño negocio local" hint-size="100%,440px"></x-import></div>
+      <div class="dual-overlay"></div>
+      <div class="dual-content">
+        <div class="dual-kicker"><svg width="15" height="15" viewBox="0 0 22 22" fill="none" class="flip"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#7EB4FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>PARA TU EMPRESA</div>
+        <h3>Bastante tienes con tu negocio</h3>
+        <p>Deja que nosotros te ayudemos a ahorrar en las facturas energéticas de tu empresa.</p>
+        <a href="#estudio" onClick="{{ goEstudio }}" class="btn-white">Quiero empezar a ahorrar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="quienes-somos">
+  <div class="qs-media">
+    <div class="equipo-img-wrap"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="foto-equipo" shape="rounded" radius="28" placeholder="Foto: el equipo asesorando a un cliente" hint-size="100%,460px" src="./assets/asesor.png"></x-import></div>
+    <div class="badge-asesor">
+      <div class="badge-asesor-inner"><span class="check">✓</span><div><div class="t">Asesor independiente</div><div class="s">No somos una comercializadora</div></div></div>
+    </div>
+  </div>
+  <div class="qs-text">
+    <div class="kicker"><svg width="16" height="16" viewBox="0 0 22 22" fill="none" class="flip"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#1677FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>QUIÉNES SOMOS<svg width="16" height="16" viewBox="0 0 22 22" fill="none"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#1677FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg></div>
+    <h2>Defendemos tus intereses <em class="em-serif em-blue">como consumidor</em>.</h2>
+    <p>Estudiamos tu factura es una empresa que defiende tus intereses como consumidor. Ofrecemos asesoramiento gratuito y personalizado, con un motor de cálculo que verifica tus facturas y te ayuda a ahorrar.</p>
+    <p>Negociamos <strong>precios exclusivos sin intermediarios</strong>, optimizamos la potencia contratada y contamos con <strong>respaldo jurídico</strong> para garantizar la seguridad de tus contrataciones.</p>
+    <img src="./assets/logo.png" alt="Estudiamos tu factura" class="qs-logo">
+    <a href="#estudio" onClick="{{ goEstudio }}" class="btn-solid">Ayudarme a ahorrar</a>
+  </div>
+</section>
+
+<section id="estudio">
+  <div class="estudio-inner">
+    <div class="estudio-text">
+      <div class="kicker kicker-light"><svg width="16" height="16" viewBox="0 0 22 22" fill="none" class="flip"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#7EB4FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>EMPIEZA HOY<svg width="16" height="16" viewBox="0 0 22 22" fill="none"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#7EB4FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg></div>
+      <h2>Tu factura, <span class="hl"><em>bajo control</em><svg viewBox="0 0 100 12" preserveAspectRatio="none" class="hl-svg"><path d="M3 8 Q 26 3 50 7 Q 74 11 97 5" stroke="#1677FF" stroke-width="3" fill="none" stroke-linecap="round" data-draw="1"></path></svg></span>.</h2>
+      <p class="estudio-sub">Déjanos tus datos y nuestro equipo te contactará para realizar el estudio gratuito de tu factura de luz o gas.</p>
+      <div class="estudio-checks">
+        <div class="check-row"><span class="check">✓</span> Estudio gratuito y sin compromiso</div>
+        <div class="check-row"><span class="check">✓</span> Factura analizada en menos de 12 horas</div>
+        <div class="check-row"><span class="check">✓</span> Tus datos, protegidos y sin cesiones</div>
+      </div>
+    </div>
+    <div class="estudio-form">
+      <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+        <div class="form-card">
+          <h3>Estudiar mi factura</h3>
+          <div class="form-stack">
+            <label class="field">Nombre y apellidos
+              <input value="{{ nombre }}" onChange="{{ setNombre }}" placeholder="Tu nombre" style="border-color:{{ nombreBorder }}">
+              <sc-if value="{{ errNombre }}" hint-placeholder-val="{{ false }}"><span class="error-msg">Escribe tu nombre.</span></sc-if>
+            </label>
+            <label class="field">Correo electrónico
+              <input value="{{ email }}" onChange="{{ setEmail }}" placeholder="tu@correo.es" type="email" style="border-color:{{ emailBorder }}">
+              <sc-if value="{{ errEmail }}" hint-placeholder-val="{{ false }}"><span class="error-msg">Introduce un correo válido.</span></sc-if>
+            </label>
+            <label class="field">Teléfono
+              <input value="{{ telefono }}" onChange="{{ setTelefono }}" placeholder="600 000 000" type="tel" style="border-color:{{ telefonoBorder }}">
+              <sc-if value="{{ errTelefono }}" hint-placeholder-val="{{ false }}"><span class="error-msg">Introduce un teléfono válido.</span></sc-if>
+            </label>
+            <div class="supply">
+              <span class="supply-label">Tu suministro</span>
+              <div class="supply-row">
+                <button onClick="{{ setLuz }}" class="chip" style="border-color:{{ luzBorder }};background:{{ luzBg }};color:{{ luzColor }}">⚡ Luz</button>
+                <button onClick="{{ setGas }}" class="chip" style="border-color:{{ gasBorder }};background:{{ gasBg }};color:{{ gasColor }}">🔥 Gas</button>
+                <button onClick="{{ setAmbos }}" class="chip" style="border-color:{{ ambosBorder }};background:{{ ambosBg }};color:{{ ambosColor }}">Luz + Gas</button>
+              </div>
+            </div>
+            <label class="privacy">
+              <input type="checkbox" checked="{{ privacidad }}" onChange="{{ togglePrivacidad }}">
+              <span>He leído y acepto la <a href="#" onClick="{{ noop }}">Política de Privacidad</a>.</span>
+            </label>
+            <sc-if value="{{ errPrivacidad }}" hint-placeholder-val="{{ false }}"><span class="error-msg tight">Debes aceptar la política de privacidad.</span></sc-if>
+            <button onClick="{{ enviar }}" class="btn-submit">Quiero ahorrar →</button>
+            <p class="form-note">Información básica sobre protección de datos: usamos tus datos solo para realizar el estudio. Sin cesiones a terceros.</p>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div class="ok-card">
+          <div class="ok-icon">✓</div>
+          <h3>¡Solicitud recibida, {{ nombreCorto }}!</h3>
+          <p>Nuestro equipo se pondrá en contacto contigo en menos de 12 horas para comenzar tu estudio gratuito.</p>
+          <div class="ok-badge">✓ Estudio gratuito y sin compromiso</div>
+          <button onClick="{{ reset }}" class="link-btn">Enviar otra solicitud</button>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo-box">
+      <img src="./assets/logo.png" alt="Estudiamos tu factura">
+    </div>
+    <nav class="footer-nav">
+      <a href="#" onClick="{{ noop }}">Aviso Legal</a>
+      <a href="#" onClick="{{ noop }}">Política de Privacidad</a>
+      <a href="#" onClick="{{ noop }}">Política de Cookies</a>
+      <a href="./crm.html" class="staff">🔒 Acceso empleados</a>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Estudiamos tu factura · Tu energía, sin letra pequeña.</p>
+    <div class="footer-logos">
+      <img src="./assets/kit_digital.png" alt="Kit Digital">
+      <img src="./assets/union_europea.png" alt="Unión Europea">
+    </div>
+    <p>hola@estudiamostufactura.es</p>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;cabeceraTransparente&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Cabecera&quot;}}">
+class Component extends DCLogic {
+  state = { scrolled: false, width: 1280, menuOpen: false, nombre: '', email: '', telefono: '', suministro: 'luz', privacidad: false, sent: false, errors: {} };
+  componentDidMount() {
+    this._onScroll = () => this.setState({ scrolled: window.scrollY > 24 });
+    this._onResize = () => this.setState({ width: window.innerWidth });
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('resize', this._onResize);
+    this._onResize(); this._onScroll();
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        en.target.querySelectorAll('[data-draw]').forEach((p) => { if (p.__draw) p.__draw(); });
+        this._io.unobserve(en.target);
+      });
+    }, { threshold: 0.5 });
+    const setup = () => {
+      document.querySelectorAll('svg [data-draw]').forEach((p) => {
+        if (p.__init) return; p.__init = true;
+        const svg = p.ownerSVGElement;
+        if (p.getAttribute('stroke-dasharray')) {
+          p.style.opacity = '0'; p.style.transition = 'opacity .7s ease .45s';
+          p.__draw = () => { p.style.opacity = '1'; };
+        } else {
+          let L = 300; try { L = p.getTotalLength(); } catch (e) {}
+          p.style.strokeDasharray = L; p.style.strokeDashoffset = L;
+          p.style.transition = 'stroke-dashoffset 1s ease .15s';
+          p.__draw = () => { p.style.strokeDashoffset = '0'; };
+        }
+        this._io.observe(svg);
+      });
+    };
+    this._ior = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        const el = en.target;
+        el.style.opacity = '1'; el.style.transform = 'translateY(0)';
+        setTimeout(() => { el.style.transition = 'transform .25s ease, box-shadow .25s ease'; el.style.transitionDelay = '0ms'; }, 1000 + (el.__delay || 0));
+        this._ior.unobserve(el);
+      });
+    }, { threshold: 0.25 });
+    this._ioc = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        const el = en.target, target = parseInt(el.getAttribute('data-count'), 10) || 0, t0 = performance.now();
+        const tick = (t) => {
+          const k = Math.min(1, (t - t0) / 1300), e = 1 - Math.pow(1 - k, 3);
+          el.textContent = String(Math.round(target * e));
+          if (k < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        this._ioc.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    const setupFx = () => {
+      document.querySelectorAll('[data-reveal]').forEach((el) => {
+        if (el.__rInit) return; el.__rInit = true;
+        const sibs = Array.from(el.parentElement.children).filter((c) => c.hasAttribute && c.hasAttribute('data-reveal'));
+        const delay = Math.max(0, sibs.indexOf(el)) * 110;
+        el.__delay = delay;
+        el.style.opacity = '0'; el.style.transform = 'translateY(26px)';
+        el.style.transition = 'opacity .7s ease, transform .7s ease';
+        el.style.transitionDelay = delay + 'ms';
+        this._ior.observe(el);
+      });
+      document.querySelectorAll('[data-count]').forEach((el) => {
+        if (el.__cInit) return; el.__cInit = true;
+        this._ioc.observe(el);
+      });
+    };
+    const setupAll = () => { setup(); setupFx(); };
+    this._setupTimers = [setTimeout(setupAll, 300), setTimeout(setupAll, 1200), setTimeout(setupAll, 3000)];
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    window.removeEventListener('resize', this._onResize);
+    if (this._io) this._io.disconnect();
+    if (this._ior) this._ior.disconnect();
+    if (this._ioc) this._ioc.disconnect();
+    (this._setupTimers || []).forEach(clearTimeout);
+  }
+  scrollTo(id) {
+    return (e) => {
+      if (e && e.preventDefault) e.preventDefault();
+      const el = document.getElementById(id);
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      }
+      this.setState({ menuOpen: false });
+    };
+  }
+  renderVals() {
+    const s = this.state;
+    const transparent = (this.props.cabeceraTransparente ?? true) && !s.scrolled && !s.menuOpen;
+    const mobile = s.width < 920;
+    const chip = (sel) => ({
+      border: sel ? '#1677FF' : '#E2E8F0',
+      bg: sel ? '#1677FF' : '#fff',
+      color: sel ? '#fff' : '#64748B'
+    });
+    const luz = chip(s.suministro === 'luz'), gas = chip(s.suministro === 'gas'), ambos = chip(s.suministro === 'ambos');
+    const err = s.errors;
+    const bordy = (k) => err[k] ? '#DC2626' : '#E2E8F0';
+    return {
+      headerBg: transparent ? 'transparent' : 'rgba(255,255,255,.94)',
+      headerShadow: transparent ? 'none' : '0 6px 24px rgba(15,23,42,.06)',
+      headerBorder: transparent ? 'transparent' : '#E2E8F0',
+      desktop: !mobile, mobile, menuOpen: s.menuOpen && mobile,
+      toggleMenu: () => this.setState({ menuOpen: !s.menuOpen }),
+      goInicio: this.scrollTo('inicio'), goProceso: this.scrollTo('proceso'),
+      goComo: this.scrollTo('como-funcionamos'), goQuienes: this.scrollTo('quienes-somos'),
+      goEstudio: this.scrollTo('estudio'),
+      nombre: s.nombre, email: s.email, telefono: s.telefono, privacidad: s.privacidad,
+      setNombre: (e) => this.setState({ nombre: e.target.value, errors: { ...err, nombre: false } }),
+      setEmail: (e) => this.setState({ email: e.target.value, errors: { ...err, email: false } }),
+      setTelefono: (e) => this.setState({ telefono: e.target.value, errors: { ...err, telefono: false } }),
+      togglePrivacidad: () => this.setState({ privacidad: !s.privacidad, errors: { ...err, privacidad: false } }),
+      setLuz: () => this.setState({ suministro: 'luz' }),
+      setGas: () => this.setState({ suministro: 'gas' }),
+      setAmbos: () => this.setState({ suministro: 'ambos' }),
+      luzBorder: luz.border, luzBg: luz.bg, luzColor: luz.color,
+      gasBorder: gas.border, gasBg: gas.bg, gasColor: gas.color,
+      ambosBorder: ambos.border, ambosBg: ambos.bg, ambosColor: ambos.color,
+      nombreBorder: bordy('nombre'), emailBorder: bordy('email'), telefonoBorder: bordy('telefono'),
+      errNombre: !!err.nombre, errEmail: !!err.email, errTelefono: !!err.telefono, errPrivacidad: !!err.privacidad,
+      enviar: () => {
+        const errors = {
+          nombre: s.nombre.trim().length < 2,
+          email: !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s.email.trim()),
+          telefono: !/^[+\d][\d\s]{7,14}$/.test(s.telefono.trim()),
+          privacidad: !s.privacidad
+        };
+        if (errors.nombre || errors.email || errors.telefono || errors.privacidad) { this.setState({ errors }); return; }
+        this.setState({ sent: true, errors: {} });
+      },
+      sent: s.sent, notSent: !s.sent,
+      nombreCorto: s.nombre.trim().split(' ')[0] || '',
+      reset: () => this.setState({ sent: false, nombre: '', email: '', telefono: '', privacidad: false }),
+      noop: (e) => { if (e && e.preventDefault) e.preventDefault(); }
+    };
+  }
+}
+</script>
+</body>
+</html>
