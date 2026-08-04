@@ -284,7 +284,7 @@
             <div class="attach">
               <span class="supply-label">Adjunta tu factura <span class="attach-optional">(opcional, PDF o imagen)</span></span>
               <label for="archivo-input" class="file-btn">📎 Adjuntar archivo</label>
-              <input id="archivo-input" type="file" accept=".pdf,image/*" multiple onChange="{{ setArchivos }}" class="file-input-hidden">
+              <input id="archivo-input" type="file" accept=".pdf,image/*" multiple="{{ true }}" onChange="{{ setArchivos }}" class="file-input-hidden">
               <sc-if value="{{ hayArchivos }}" hint-placeholder-val="{{ false }}">
                 <div class="file-list">
                   <sc-for list="{{ archivosInfo }}" as="a">
