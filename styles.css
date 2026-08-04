@@ -166,8 +166,8 @@ input::placeholder{color:#94A3B8}
 .dual-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,42,.86) 0%,rgba(15,23,42,.25) 55%,rgba(15,23,42,0) 100%);pointer-events:none}
 .dual-content{position:absolute;left:0;right:0;bottom:0;padding:34px 34px 60px;pointer-events:none}
 .dual-kicker{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.16em;color:#7EB4FF;margin-bottom:10px}
-.dual-content h3{font-size:28px;font-weight:800;color:#fff;margin:0 0 10px;letter-spacing:-0.02em}
-.dual-content p{font-size:15px;line-height:1.6;color:rgba(255,255,255,.85);margin:0 0 20px;max-width:420px;text-wrap:pretty}
+.dual-content h3{font-size:28px;font-weight:800;color:#fff;margin:0 0 10px;letter-spacing:-0.02em;line-height:1.2;min-height:68px}
+.dual-content p{font-size:15px;line-height:1.6;color:rgba(255,255,255,.85);margin:0 0 20px;max-width:420px;text-wrap:pretty;min-height:72px}
 
 /* ---------- Quienes somos ---------- */
 #quienes-somos{max-width:1240px;margin:0 auto;padding:70px 28px 110px;scroll-margin-top:90px;display:flex;flex-wrap:wrap;align-items:center;gap:60px}
@@ -317,7 +317,7 @@ footer{background:#0F172A;border-top:1px solid rgba(248,250,252,.1)}
   .dual{padding:56px 20px 16px}
   .dual-card{min-height:380px}
   .dual-content{padding:24px 22px 40px}
-  .dual-content h3{font-size:23px}
+  .dual-content h3{font-size:23px;min-height:56px}
   /* Quienes somos */
   #quienes-somos{padding:48px 20px 76px;gap:36px}
   #quienes-somos h2{font-size:30px}
