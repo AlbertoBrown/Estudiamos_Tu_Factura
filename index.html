@@ -378,6 +378,21 @@ async function subirArchivoSupabase(file, path) {
   });
   if (!res.ok) throw new Error('Fallo al subir archivo: ' + res.status);
 }
+const URL_FIRMADA_EXPIRA_SEGUNDOS = 60 * 60 * 24 * 7; // 7 días
+async function crearUrlFirmadaSupabase(path, nombreDescarga) {
+  const res = await fetch(`${SUPABASE_URL}/storage/v1/object/sign/${SUPABASE_BUCKET}/${encodeURI(path)}`, {
+    method: 'POST',
+    headers: {
+      apikey: SUPABASE_ANON_KEY,
+      Authorization: 'Bearer ' + SUPABASE_ANON_KEY,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ expiresIn: URL_FIRMADA_EXPIRA_SEGUNDOS })
+  });
+  if (!res.ok) throw new Error('Fallo al generar el enlace del archivo: ' + res.status);
+  const { signedURL } = await res.json();
+  return `${SUPABASE_URL}/storage/v1${signedURL}&download=${encodeURIComponent(nombreDescarga)}`;
+}
 async function insertarSolicitudSupabase(row) {
   const res = await fetch(`${SUPABASE_URL}/rest/v1/${SUPABASE_TABLE}`, {
     method: 'POST',
@@ -393,13 +408,10 @@ async function insertarSolicitudSupabase(row) {
 }
 
 // --- Configuración de EmailJS (notificación de nuevas solicitudes) ----
-// TODO: sustituye estos tres valores por los de tu cuenta EmailJS
-// (emailjs.com → Email Services → Service ID · Email Templates →
-// Template ID · Account → General → Public Key). En la plantilla,
-// configura el campo "To Email" con albertoetfenergia@gmail.com.
-const EMAILJS_SERVICE_ID = 'TU-SERVICE-ID';
-const EMAILJS_TEMPLATE_ID = 'TU-TEMPLATE-ID';
-const EMAILJS_PUBLIC_KEY = 'TU-PUBLIC-KEY';
+const EMAILJS_SERVICE_ID = 'service_wlehukh';
+const EMAILJS_TEMPLATE_ID = 'template_prz01uc';
+const EMAILJS_PUBLIC_KEY = '3ze6r4KTa1F9NPtoH';
+const NOTIFICACION_EMAIL = 'alberto.moreno.sanchez7@gmail.com';
 const SUMINISTRO_LABEL = { luz: 'Luz', gas: 'Gas', ambos: 'Luz + Gas' };
 
 async function notificarPorEmail(datos) {
@@ -583,11 +595,18 @@ class Component extends DCLogic {
         try {
           const solicitudId = uuidv4();
           const archivosSubidos = [];
+          const archivosParaEmail = [];
           for (let i = 0; i < s.archivos.length; i++) {
             const file = s.archivos[i];
             const path = `${solicitudId}/${i}-${sanitizeFileName(file.name)}`;
             await subirArchivoSupabase(file, path);
             archivosSubidos.push({ path, nombre: file.name, tipo: file.type, tamano: file.size });
+            try {
+              const url = await crearUrlFirmadaSupabase(path, file.name);
+              archivosParaEmail.push({ nombre: file.name, url });
+            } catch (e) {
+              console.warn('[estudio] no se pudo generar el enlace de descarga para', file.name, e);
+            }
           }
           await insertarSolicitudSupabase({
             id: solicitudId,
@@ -600,12 +619,16 @@ class Component extends DCLogic {
           });
           try {
             await notificarPorEmail({
+              to_email: NOTIFICACION_EMAIL,
               nombre: s.nombre.trim(),
               email: s.email.trim(),
               telefono: s.telefono.trim(),
               suministro: SUMINISTRO_LABEL[s.suministro] || s.suministro,
               num_archivos: archivosSubidos.length,
               archivos_nombres: archivosSubidos.length ? archivosSubidos.map((a) => a.nombre).join(', ') : 'Ninguno',
+              archivos_links: archivosParaEmail.length
+                ? archivosParaEmail.map((a) => `<a href="${a.url}" target="_blank" rel="noopener" style="display:inline-block; margin:4px 8px 4px 0; padding:10px 18px; background-color:#1f3c88; color:#ffffff; font-size:13px; font-weight:bold; text-decoration:none; border-radius:6px;">⬇ ${a.nombre}</a>`).join('')
+                : '<p style="margin:4px 0;">Ninguno</p>',
               fecha: new Date().toLocaleString('es-ES', { dateStyle: 'medium', timeStyle: 'short' })
             });
           } catch (e) {
