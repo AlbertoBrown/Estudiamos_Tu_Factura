@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./styles.css">
+<link rel="icon" type="image/png" href="./assets/logo.png">
 </helmet>
 
 <header class="site-header" style="background:{{ headerBg }};box-shadow:{{ headerShadow }};border-bottom:1px solid {{ headerBorder }}">
@@ -428,6 +429,21 @@ async function notificarPorEmail(datos) {
   if (!res.ok) throw new Error('Fallo al notificar por email: ' + res.status);
 }
 
+// --- Configuración de Google Sheets (registro de solicitudes) --------
+// TODO: sustituye por la URL del Apps Script (ver instrucciones) y un
+// secreto elegido por ti (cualquier cadena, debe coincidir con la del script).
+const GOOGLE_SHEETS_URL = 'TU-URL-DEL-APPS-SCRIPT';
+const GOOGLE_SHEETS_SECRET = 'TU-SECRETO';
+
+async function registrarEnGoogleSheets(datos) {
+  const res = await fetch(GOOGLE_SHEETS_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify({ ...datos, secret: GOOGLE_SHEETS_SECRET })
+  });
+  if (!res.ok) throw new Error('Fallo al registrar en Google Sheets: ' + res.status);
+}
+
 class Component extends DCLogic {
   state = { scrolled: false, width: 1280, menuOpen: false, nombre: '', email: '', telefono: '', suministro: 'luz', privacidad: false, archivos: [], errArchivo: '', enviando: false, envioError: false, sent: false, errors: {} };
   componentDidMount() {
@@ -633,6 +649,20 @@ class Component extends DCLogic {
             });
           } catch (e) {
             console.warn('[estudio] la solicitud se guardó, pero falló el aviso por email', e);
+          }
+          try {
+            await registrarEnGoogleSheets({
+              id: solicitudId,
+              nombre: s.nombre.trim(),
+              email: s.email.trim(),
+              telefono: s.telefono.trim(),
+              suministro: SUMINISTRO_LABEL[s.suministro] || s.suministro,
+              num_archivos: archivosSubidos.length,
+              archivos_nombres: archivosSubidos.length ? archivosSubidos.map((a) => a.nombre).join(', ') : 'Ninguno',
+              fecha: new Date().toLocaleString('es-ES', { dateStyle: 'medium', timeStyle: 'short' })
+            });
+          } catch (e) {
+            console.warn('[estudio] la solicitud se guardó, pero falló el registro en Google Sheets', e);
           }
           this.setState({ sent: true, enviando: false, errors: {} });
         } catch (e) {
