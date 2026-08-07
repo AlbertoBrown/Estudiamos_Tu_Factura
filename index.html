@@ -429,17 +429,14 @@ async function notificarPorEmail(datos) {
   if (!res.ok) throw new Error('Fallo al notificar por email: ' + res.status);
 }
 
-// --- Configuración de Google Sheets (registro de solicitudes) --------
-// TODO: sustituye por la URL del Apps Script (ver instrucciones) y un
-// secreto elegido por ti (cualquier cadena, debe coincidir con la del script).
-const GOOGLE_SHEETS_URL = 'TU-URL-DEL-APPS-SCRIPT';
-const GOOGLE_SHEETS_SECRET = 'TU-SECRETO';
-
+// --- Registro de solicitudes en Google Sheets --------------------------
+// La URL y el secreto reales viven solo en el backend (api/registrar-sheets.js
+// + variables de entorno en Vercel), no en este código público.
 async function registrarEnGoogleSheets(datos) {
-  const res = await fetch(GOOGLE_SHEETS_URL, {
+  const res = await fetch('/api/registrar-sheets', {
     method: 'POST',
-    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-    body: JSON.stringify({ ...datos, secret: GOOGLE_SHEETS_SECRET })
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(datos)
   });
   if (!res.ok) throw new Error('Fallo al registrar en Google Sheets: ' + res.status);
 }
