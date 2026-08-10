@@ -33,7 +33,14 @@ export default async function handler(req, res) {
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify({ id, nombre, email, telefono, suministro, num_archivos, archivos_nombres, fecha, secret: GOOGLE_SHEETS_SECRET })
     });
-    if (!sheetsRes.ok) throw new Error('Google Sheets respondió ' + sheetsRes.status);
+    const texto = await sheetsRes.text();
+    let cuerpo;
+    try { cuerpo = JSON.parse(texto); } catch { cuerpo = null; }
+    if (!sheetsRes.ok || !cuerpo || cuerpo.ok !== true) {
+      console.error('[registrar-sheets] respuesta inesperada de Google', sheetsRes.status, texto.slice(0, 500));
+      res.status(502).json({ ok: false, error: 'sheets_failed', status: sheetsRes.status, detail: texto.slice(0, 300) });
+      return;
+    }
     res.status(200).json({ ok: true });
   } catch (e) {
     res.status(502).json({ ok: false, error: String(e.message || e) });
