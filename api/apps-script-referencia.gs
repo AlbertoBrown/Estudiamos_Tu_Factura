@@ -16,18 +16,7 @@ function doPost(e) {
       .setMimeType(ContentService.MimeType.JSON);
   }
 
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  sheet.appendRow([
-    data.fecha,
-    data.id,
-    data.nombre,
-    data.email,
-    data.telefono,
-    data.suministro,
-    data.num_archivos,
-    data.archivos_nombres
-  ]);
-
+  let enlaceCarpeta = '';
   if (data.archivos && data.archivos.length) {
     const raiz = obtenerCarpetaRaiz();
     const nombreCarpeta = (data.fecha || '') + ' - ' + (data.nombre || 'Sin nombre');
@@ -43,7 +32,21 @@ function doPost(e) {
         // seguimos con el resto de archivos aunque uno falle
       }
     });
+    enlaceCarpeta = '=HYPERLINK("' + carpeta.getUrl() + '";"Ver archivos")';
   }
+
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  sheet.appendRow([
+    data.fecha,
+    data.id,
+    data.nombre,
+    data.email,
+    data.telefono,
+    data.suministro,
+    data.num_archivos,
+    data.archivos_nombres,
+    enlaceCarpeta
+  ]);
 
   return ContentService.createTextOutput(JSON.stringify({ ok: true }))
     .setMimeType(ContentService.MimeType.JSON);
