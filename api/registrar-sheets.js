@@ -12,6 +12,18 @@ function origenPermitido(req) {
 }
 
 export default async function handler(req, res) {
+  if (req.query && req.query.debug === 'd6629ee61eeaf26f68ce4d47b1ac6c0e') {
+    const { GOOGLE_SHEETS_URL, GOOGLE_SHEETS_SECRET } = process.env;
+    res.status(200).json({
+      url_presente: !!GOOGLE_SHEETS_URL,
+      url_termina_en: GOOGLE_SHEETS_URL ? GOOGLE_SHEETS_URL.slice(-25) : null,
+      secret_presente: !!GOOGLE_SHEETS_SECRET,
+      secret_longitud: GOOGLE_SHEETS_SECRET ? GOOGLE_SHEETS_SECRET.length : 0,
+      secret_primeros4: GOOGLE_SHEETS_SECRET ? GOOGLE_SHEETS_SECRET.slice(0, 4) : null,
+      secret_ultimos4: GOOGLE_SHEETS_SECRET ? GOOGLE_SHEETS_SECRET.slice(-4) : null
+    });
+    return;
+  }
   if (req.method !== 'POST') {
     res.status(405).json({ ok: false, error: 'method_not_allowed' });
     return;
