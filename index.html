@@ -656,6 +656,7 @@ class Component extends DCLogic {
               suministro: SUMINISTRO_LABEL[s.suministro] || s.suministro,
               num_archivos: archivosSubidos.length,
               archivos_nombres: archivosSubidos.length ? archivosSubidos.map((a) => a.nombre).join(', ') : 'Ninguno',
+              archivos: archivosParaEmail,
               fecha: new Date().toLocaleString('es-ES', { dateStyle: 'medium', timeStyle: 'short' })
             });
           } catch (e) {
