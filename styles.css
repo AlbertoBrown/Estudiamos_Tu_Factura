@@ -63,7 +63,7 @@ input::placeholder{color:#94A3B8}
 .menu-btn{background:#fff;border:1px solid #E2E8F0;border-radius:12px;width:44px;height:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer}
 .menu-btn span{width:18px;height:2px;background:#0F172A;border-radius:2px}
 .nav-mobile{background:#fff;border-top:1px solid #E2E8F0;padding:18px 28px 24px;display:flex;flex-direction:column;gap:16px}
-.nav-mobile-link{font-size:17px;font-weight:600;color:#0F172A}
+.nav-mobile-link{font-size:17px;font-weight:600;color:#0F172A;text-align:center}
 .nav-mobile .btn-nav-cta{font-size:16px;padding:14px 24px;text-align:center}
 .nav-staff-mobile{display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:600;color:#64748B;border-top:1px solid #E2E8F0;padding-top:16px;margin-top:2px}
 
