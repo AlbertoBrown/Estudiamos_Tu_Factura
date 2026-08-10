@@ -245,8 +245,8 @@ footer{background:#0F172A;border-top:1px solid rgba(248,250,252,.1)}
 .footer-nav .staff{display:flex;align-items:center;gap:6px}
 .footer-bottom{max-width:1240px;margin:0 auto;padding:0 28px 36px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;border-top:1px solid rgba(248,250,252,.08)}
 .footer-bottom p{font-size:13px;color:#64748B;margin:18px 0 0}
-.footer-logos{display:flex;align-items:center;gap:16px;margin-top:18px}
-.footer-logos img{height:40px;display:block}
+.footer-logos{display:flex;align-items:center;gap:24px;margin-top:18px}
+.footer-logos img{height:64px;display:block}
 
 /* ============================================================
    RESPONSIVE
