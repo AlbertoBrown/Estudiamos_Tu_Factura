@@ -23,8 +23,7 @@
     <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
       <nav class="nav-desktop">
         <a href="#proceso" onClick="{{ goProceso }}" class="nav-link">Proceso</a>
-        <a href="#como-funcionamos" onClick="{{ goComo }}" class="nav-link">Cómo funcionamos</a>
-        <a href="#quienes-somos" onClick="{{ goQuienes }}" class="nav-link">Quiénes somos</a>
+        <a href="#como-funcionamos" onClick="{{ goComo }}" class="nav-link">Por qué confiar</a>
         <a href="./crm.html" class="nav-staff">Empleados</a>
         <a href="#estudio" onClick="{{ goEstudio }}" class="btn-nav-cta">Estudiar mi factura</a>
       </nav>
@@ -40,8 +39,7 @@
   <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
     <nav class="nav-mobile">
       <a href="#proceso" onClick="{{ goProceso }}" class="nav-mobile-link">Proceso</a>
-      <a href="#como-funcionamos" onClick="{{ goComo }}" class="nav-mobile-link">Cómo funcionamos</a>
-      <a href="#quienes-somos" onClick="{{ goQuienes }}" class="nav-mobile-link">Quiénes somos</a>
+      <a href="#como-funcionamos" onClick="{{ goComo }}" class="nav-mobile-link">Por qué confiar</a>
       <a href="#estudio" onClick="{{ goEstudio }}" class="btn-nav-cta">Estudiar mi factura</a>
       <a href="./crm.html" class="nav-staff-mobile">Acceso empleados</a>
     </nav>
@@ -58,7 +56,7 @@
     <p class="hero-sub">Analizamos tu factura, la comparamos con las mejores tarifas del mercado y te mostramos cuánto podrías ahorrar. <strong>Sin coste, sin compromiso y en menos de 12 horas.</strong></p>
     <div class="hero-ctas">
       <a href="#estudio" onClick="{{ goEstudio }}" class="btn-primary">Quiero ahorrar</a>
-      <a href="#como-funcionamos" onClick="{{ goComo }}" class="btn-ghost">Ver cómo funciona</a>
+      <a href="#como-funcionamos" onClick="{{ goComo }}" class="btn-ghost">Por qué confiar en nosotros</a>
     </div>
     <div class="hero-trust">
       <div class="trust-item"><span class="check">✓</span> Más de 10 años de experiencia</div>
@@ -164,40 +162,36 @@
   <div class="cf-inner">
     <div class="cf-head">
       <div class="cf-head-inner">
-        <div class="kicker kicker-center"><svg width="16" height="16" viewBox="0 0 22 22" fill="none" class="flip"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#1677FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>CÓMO FUNCIONAMOS<svg width="16" height="16" viewBox="0 0 22 22" fill="none"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#1677FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg></div>
-        <h2>Analizamos tu factura como si fuera <span class="hl"><em>la nuestra</em><svg viewBox="0 0 100 12" preserveAspectRatio="none" class="hl-svg"><path d="M3 8 Q 26 3 50 7 Q 74 11 97 5" stroke="#1677FF" stroke-width="3" fill="none" stroke-linecap="round" data-draw="1"></path></svg></span>.</h2>
+        <div class="kicker kicker-center"><svg width="16" height="16" viewBox="0 0 22 22" fill="none" class="flip"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#1677FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>¿POR QUÉ CONFIAR EN NOSOTROS?<svg width="16" height="16" viewBox="0 0 22 22" fill="none"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#1677FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg></div>
+        <h2>No vendemos energía.<br>Te ayudamos a <span class="hl"><em>pagar menos</em><svg viewBox="0 0 100 12" preserveAspectRatio="none" class="hl-svg"><path d="M3 8 Q 26 3 50 7 Q 74 11 97 5" stroke="#1677FF" stroke-width="3" fill="none" stroke-linecap="round" data-draw="1"></path></svg></span>.</h2>
       </div>
-      <p class="cf-sub">No somos una comercializadora. Somos un equipo de especialistas que compara las mejores tarifas del mercado para ayudarte a ahorrar de forma objetiva y transparente.</p>
-    </div>
-    <div class="divider-row">
-      <div class="divider-line"></div>
-      <svg width="16" height="16" viewBox="0 0 22 22" fill="none" class="flip"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#1677FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>
-      <h3>¿Por qué confiar en nosotros?</h3>
-      <svg width="16" height="16" viewBox="0 0 22 22" fill="none"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#1677FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>
-      <div class="divider-line"></div>
+      <p class="cf-sub" style="max-width:540px">Analizamos tu factura, comprobamos qué estás pagando y buscamos alternativas que mejoren tus condiciones. Si encontramos una opción mejor, te la explicamos y tú decides.</p>
     </div>
     <div class="asesora-row">
       <div class="asesora-cards">
-        <div data-reveal="" class="feature-lead">
-          <div class="lead-check">✓</div>
-          <div class="lead-title">No estás solo.<br><span class="text-blue">Te acompañamos de principio a fin.</span></div>
+        <div data-reveal="" class="feature-card">
+          <div class="feature-icon">🧑‍💼</div>
+          <div><div class="feature-title">Asesor personal</div><div class="feature-desc">Un experto energético te acompaña desde el primer momento y resuelve todas tus dudas.</div></div>
         </div>
         <div data-reveal="" class="feature-card">
-          <div class="feature-icon">🎧</div>
-          <div><div class="feature-title">Asesor personal</div><div class="feature-desc">Desde el primer momento tendrás un experto que resolverá tus dudas y te acompañará durante todo el proceso.</div></div>
-        </div>
-        <div data-reveal="" class="feature-card">
-          <div class="feature-icon">💬</div>
-          <div><div class="feature-title">Dudas y gestiones</div><div class="feature-desc">Nos encargamos de todo el proceso para que tú no tengas que preocuparte de nada.</div></div>
+          <div class="feature-icon">📄</div>
+          <div><div class="feature-title">Estudio gratuito</div><div class="feature-desc">Analizamos tu factura sin coste ni compromiso. Siempre gratis.</div></div>
         </div>
         <div data-reveal="" class="feature-card">
           <div class="feature-icon">🛡️</div>
-          <div><div class="feature-title">Independencia y transparencia</div><div class="feature-desc">Nuestra prioridad no es vender una tarifa, sino ayudarte a pagar menos.</div></div>
+          <div><div class="feature-title">Sin compromiso</div><div class="feature-desc">Tú decides si quieres aceptar nuestra propuesta. Sin letras pequeñas.</div></div>
         </div>
       </div>
       <div data-reveal="" class="asesora-media">
         <div class="asesora-img-wrap"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="foto-asesora" shape="rounded" radius="20" placeholder="Foto de tu asesora (con auriculares, sonriendo)" hint-size="100%,340px" src="./assets/asesora.png"></x-import></div>
         <div class="asesora-tag">Tu asesora personal <span class="text-blue">· real, no un bot</span></div>
+      </div>
+    </div>
+    <div class="confianza-banner">
+      <div class="confianza-banner-icon">🏅</div>
+      <div>
+        <div class="confianza-banner-title">Solo defendemos tus intereses</div>
+        <div class="confianza-banner-desc">No somos una comercializadora ni estamos ligados a ninguna compañía. Nuestro único objetivo es que pagues menos.</div>
       </div>
     </div>
   </div>
@@ -225,23 +219,6 @@
         <a href="#estudio" onClick="{{ goEstudio }}" class="btn-white">Quiero empezar a ahorrar</a>
       </div>
     </div>
-  </div>
-</section>
-
-<section id="quienes-somos">
-  <div class="qs-media">
-    <div class="equipo-img-wrap"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="foto-equipo" shape="rounded" radius="28" placeholder="Foto: el equipo asesorando a un cliente" hint-size="100%,460px" src="./assets/asesor.png"></x-import></div>
-    <div class="badge-asesor">
-      <div class="badge-asesor-inner"><span class="check">✓</span><div><div class="t">Solo defendemos tus intereses</div><div class="s">No somos una comercializadora. Buscamos el mayor ahorro para ti.</div></div></div>
-    </div>
-  </div>
-  <div class="qs-text">
-    <div class="kicker"><svg width="16" height="16" viewBox="0 0 22 22" fill="none" class="flip"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#1677FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg>QUIÉNES SOMOS<svg width="16" height="16" viewBox="0 0 22 22" fill="none"><path d="M4 18 L9 11 M12 20 L17 13" stroke="#1677FF" stroke-width="2.5" stroke-linecap="round" data-draw="1"></path></svg></div>
-    <h2>Defendemos tus intereses <em class="em-serif em-blue">como consumidor</em>.</h2>
-    <p>Estudiamos tu factura es una empresa que defiende tus intereses como consumidor. Ofrecemos asesoramiento gratuito y personalizado, con un motor de cálculo que verifica tus facturas y te ayuda a ahorrar.</p>
-    <p>Negociamos <strong>precios exclusivos sin intermediarios</strong>, optimizamos la potencia contratada y contamos con <strong>respaldo jurídico</strong> para garantizar la seguridad de tus contrataciones.</p>
-    <img src="./assets/logo.png" alt="Estudiamos tu factura" class="qs-logo">
-    <a href="#estudio" onClick="{{ goEstudio }}" class="btn-solid">Ayudarme a ahorrar</a>
   </div>
 </section>
 
@@ -551,7 +528,7 @@ class Component extends DCLogic {
       desktop: !mobile, mobile, menuOpen: s.menuOpen && mobile,
       toggleMenu: () => this.setState({ menuOpen: !s.menuOpen }),
       goInicio: this.scrollTo('inicio'), goProceso: this.scrollTo('proceso'),
-      goComo: this.scrollTo('como-funcionamos'), goQuienes: this.scrollTo('quienes-somos'),
+      goComo: this.scrollTo('como-funcionamos'),
       goEstudio: this.scrollTo('estudio'),
       nombre: s.nombre, email: s.email, telefono: s.telefono, privacidad: s.privacidad,
       setNombre: (e) => this.setState({ nombre: e.target.value, errors: { ...err, nombre: false } }),

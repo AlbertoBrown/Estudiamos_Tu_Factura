@@ -169,21 +169,11 @@ input::placeholder{color:#94A3B8}
 .dual-content h3{font-size:28px;font-weight:800;color:#fff;margin:0 0 10px;letter-spacing:-0.02em;line-height:1.2;min-height:102px;display:flex;align-items:flex-end}
 .dual-content p{font-size:15px;line-height:1.6;color:rgba(255,255,255,.85);margin:0 0 20px;max-width:420px;text-wrap:pretty;min-height:72px}
 
-/* ---------- Quienes somos ---------- */
-#quienes-somos{max-width:1240px;margin:0 auto;padding:70px 28px 110px;scroll-margin-top:90px;display:flex;flex-wrap:wrap;align-items:center;gap:60px}
-.qs-media{flex:1 1 400px;min-width:300px;position:relative}
-.equipo-img-wrap{width:100%;height:460px}
-.badge-asesor{position:absolute;right:-16px;bottom:-20px;background:#fff;border-radius:18px;padding:16px 22px;box-shadow:0 12px 32px rgba(15,23,42,.12);pointer-events:none}
-.badge-asesor-inner{display:flex;align-items:center;gap:10px}
-.badge-asesor .check{font-size:19px}
-.badge-asesor .t{font-size:14px;font-weight:800}
-.badge-asesor .s{font-size:12px;color:#64748B}
-.qs-text{flex:1 1 460px;min-width:320px}
-#quienes-somos h2{font-size:clamp(34px,4vw,52px);font-weight:800;letter-spacing:-0.025em;line-height:1.1;margin:0 0 24px;text-wrap:balance}
-.qs-text p{font-size:17px;line-height:1.7;color:#64748B;margin:0 0 18px;text-wrap:pretty}
-.qs-text p+p{margin-bottom:24px}
-.qs-text strong{color:#0F172A}
-.qs-logo{height:44px;display:block;margin-bottom:28px}
+/* ---------- Por qué confiar en nosotros ---------- */
+.confianza-banner{margin-top:28px;background:#E8F0FE;border-radius:18px;padding:22px 28px;display:flex;align-items:center;gap:18px}
+.confianza-banner-icon{width:52px;height:52px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;flex:none}
+.confianza-banner-title{font-size:16px;font-weight:800;margin-bottom:4px}
+.confianza-banner-desc{font-size:14px;line-height:1.5;color:#64748B}
 
 /* ---------- Estudio (formulario) ---------- */
 #estudio{background:#0F172A;scroll-margin-top:60px}
@@ -273,8 +263,6 @@ footer{background:#0F172A;border-top:1px solid rgba(248,250,252,.1)}
   .asesora-cards{min-width:0}
   .asesora-media{flex:0 0 250px;min-width:0}
   .dual{padding:70px 24px 30px}
-  #quienes-somos{padding:60px 24px 90px;gap:40px}
-  .equipo-img-wrap{height:400px}
   .estudio-inner{padding:84px 24px;gap:44px}
   .footer-top{padding:48px 24px 36px}
   .footer-bottom{padding:0 24px 32px}
@@ -318,12 +306,7 @@ footer{background:#0F172A;border-top:1px solid rgba(248,250,252,.1)}
   .dual-card{min-height:380px}
   .dual-content{padding:24px 22px 40px}
   .dual-content h3{font-size:23px;min-height:84px}
-  /* Quienes somos */
-  #quienes-somos{padding:48px 20px 76px;gap:36px}
-  #quienes-somos h2{font-size:30px}
-  .qs-text p{font-size:15.5px}
-  .equipo-img-wrap{height:300px}
-  .badge-asesor{right:10px;bottom:10px;padding:12px 16px}
+  .confianza-banner{flex-direction:column;text-align:center;padding:20px}
   /* Formulario */
   .estudio-inner{padding:60px 20px;gap:40px}
   #estudio h2{font-size:32px}
